@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AURUM — детейлинг-студия в Екатеринбурге</title>
+<meta name="description" content="Полировка, керамика, химчистка салона. Фиксированные цены, 2 бокса, запись на конкретное время.">
+<style>
+:root{
+  --ink:#0d0f12; --ink-2:#171a1f; --line:#262b33;
+  --muted:#8b939f; --paper:#ffffff; --paper-2:#f6f7f9;
+  --gold:#c9a227; --gold-soft:#e6c95c;
+  --r:14px; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--ink); color:#e9ecf1; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;font-weight:800}
+h1{font-size:clamp(2rem,5vw,3.4rem)}
+h2{font-size:clamp(1.5rem,3.2vw,2.2rem)}
+h3{font-size:1.12rem;font-weight:700}
+a{color:inherit;text-decoration:none}
+.muted{color:var(--muted)}
+.gold{color:var(--gold-soft)}
+
+/* header */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,15,18,.82); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.14em;font-size:.95rem}
+.logo i{
+  width:26px;height:26px;border-radius:50%;display:block;
+  background:radial-gradient(circle at 32% 30%,#f2dd95,#c9a227 55%,#8a6d12);
+  box-shadow:0 0 0 1px rgba(201,162,39,.35),0 0 18px rgba(201,162,39,.28);
+}
+.nav-links{display:flex;gap:26px;font-size:.92rem;color:#b9c0cb}
+.nav-links a:hover{color:#fff}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 22px;border-radius:999px;font-weight:700;font-size:.94rem;
+  border:1px solid transparent;cursor:pointer;transition:.18s;
+}
+.btn-gold{background:linear-gradient(180deg,#e3c65e,#c9a227);color:#1a1405}
+.btn-gold:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:#dfe4ec}
+.btn-ghost:hover{border-color:#3b434f;background:#161a20}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:76px 0 64px}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(760px 380px at 78% -8%,rgba(201,162,39,.17),transparent 62%),
+    radial-gradient(560px 320px at 8% 12%,rgba(80,130,255,.10),transparent 60%);
+}
+.hero .wrap{position:relative;z-index:1}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;font-size:.79rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--gold-soft);
+  border:1px solid rgba(201,162,39,.32);border-radius:999px;padding:7px 15px;
+  background:rgba(201,162,39,.07);margin-bottom:22px;
+}
+.hero p.lead{font-size:1.12rem;color:#a8b0bd;max-width:600px;margin-top:18px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.facts{display:flex;gap:34px;flex-wrap:wrap;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.fact b{display:block;font-size:1.5rem;letter-spacing:-.02em}
+.fact span{font-size:.83rem;color:var(--muted)}
+
+/* sections */
+section{padding:72px 0}
+.sec-head{max-width:620px;margin-bottom:40px}
+.sec-head p{color:var(--muted);margin-top:12px}
+
+/* services */
+.grid{display:grid;gap:18px}
+.svc{grid-template-columns:repeat(auto-fit,minmax(252px,1fr))}
+.card{
+  background:linear-gradient(180deg,#151920,#11151a);
+  border:1px solid var(--line);border-radius:var(--r);padding:26px;
+  display:flex;flex-direction:column;gap:12px;transition:.2s;
+}
+.card:hover{border-color:#3a424f;transform:translateY(-3px)}
+.card .num{font-size:.76rem;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.card p{color:var(--muted);font-size:.93rem;flex:1}
+.price{font-size:1.28rem;font-weight:800}
+.price small{font-size:.8rem;font-weight:400;color:var(--muted)}
+
+/* calculator */
+.calc-wrap{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:26px;
+  background:linear-gradient(180deg,#151920,#10141a);
+  border:1px solid var(--line);border-radius:20px;padding:30px;
+}
+@media(max-width:820px){.calc-wrap{grid-template-columns:1fr}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.83rem;color:var(--muted);margin-bottom:8px;letter-spacing:.02em}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{
+  padding:10px 15px;border-radius:10px;border:1px solid var(--line);
+  background:#0e1116;color:#c8cfda;font-size:.88rem;cursor:pointer;transition:.15s;
+}
+.opt:hover{border-color:#3b434f}
+.opt[aria-pressed="true"]{background:rgba(201,162,39,.13);border-color:var(--gold);color:#f4e6bb;font-weight:600}
+.opt:focus-visible{outline:2px solid var(--gold-soft);outline-offset:2px}
+.total{
+  background:#0b0e12;border:1px solid var(--line);border-radius:16px;
+  padding:24px;display:flex;flex-direction:column;justify-content:center;gap:6px;
+}
+.total .lbl{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.total .sum{font-size:2.1rem;font-weight:800;letter-spacing:-.02em}
+.total .note{font-size:.82rem;color:var(--muted)}
+.total .btn{margin-top:14px}
+
+/* steps */
+.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.step{
+  position:relative;padding:24px 22px 24px 22px;border-radius:var(--r);
+  border:1px solid var(--line);background:#12161c;
+}
+.step::before{
+  counter-increment:s;content:counter(s);
+  display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:rgba(201,162,39,.14);color:var(--gold-soft);font-weight:800;font-size:.86rem;
+  margin-bottom:14px;
+}
+.step h3{font-size:1rem;margin-bottom:7px}
+.step p{color:var(--muted);font-size:.89rem}
+
+/* reviews */
+.rev{grid-template-columns:repeat(auto-fit,minmax(268px,1fr))}
+.quote{background:#12161c;border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.9rem}
+.quote p{font-size:.94rem;color:#cfd5de}
+.who{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-weight:400;font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);font-size:.93rem;margin-top:12px;max-width:760px}
+
+/* form */
+.contact{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;
+  background:linear-gradient(180deg,#151920,#0f1318);
+  border:1px solid var(--line);border-radius:20px;padding:34px;
+}
+@media(max-width:820px){.contact{grid-template-columns:1fr}}
+input,select,textarea{
+  width:100%;padding:13px 14px;border-radius:10px;background:#0b0e12;
+  border:1px solid var(--line);color:#e9ecf1;font:inherit;font-size:.93rem;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+label.req{font-size:.82rem;color:var(--muted);display:block;margin:0 0 7px}
+.contact form{display:flex;flex-direction:column;gap:14px}
+.form-note{font-size:.79rem;color:var(--muted)}
+.ok{
+  display:none;background:rgba(46,160,102,.12);border:1px solid rgba(46,160,102,.4);
+  color:#9be7bf;border-radius:10px;padding:12px 14px;font-size:.9rem;
+}
+.ok.show{display:block}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:38px 0 30px;color:var(--muted);font-size:.86rem}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.demo-tag{
+  display:inline-block;margin-top:16px;font-size:.76rem;letter-spacing:.05em;
+  border:1px dashed #3a424f;border-radius:999px;padding:5px 12px;color:#7d8592;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><i></i>AURUM</div>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#calc">Калькулятор</a>
+      <a href="#process">Как работаем</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a href="#book" class="btn btn-gold">Записаться</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="badge">2 бокса · Екатеринбург · с 2016 года</div>
+    <h1>Кузов как из салона —<br>за один день</h1>
+    <p class="lead">Полировка, керамическое покрытие и химчистка салона по фиксированной цене.
+      Записываем на конкретное время, работаем без «допов» по факту.</p>
+    <div class="hero-actions">
+      <a href="#calc" class="btn btn-gold">Рассчитать стоимость</a>
+      <a href="#services" class="btn btn-ghost">Смотреть услуги</a>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>1 480</b><span>машин за 9 лет</span></div>
+      <div class="fact"><b>1 день</b><span>средний срок работ</span></div>
+      <div class="fact"><b>2 года</b><span>гарантия на керамику</span></div>
+      <div class="fact"><b>4.9</b><span>оценка на картах</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Услуги и цены</h2>
+      <p>Цена зависит от класса автомобиля. Ниже — для седана среднего класса; точную сумму покажет калькулятор.</p>
+    </div>
+    <div class="grid svc">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Полировка кузова</h3>
+        <p>Убираем голограммы, мелкие царапины и матовость. Двухэтапная, с контролем под лампой.</p>
+        <div class="price">от 8 900 ₽ <small>· 6–8 часов</small></div>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Керамическое покрытие</h3>
+        <p>2 слоя 9H-керамики после полировки. Гидрофоб, защита от реагентов, гарантия 2 года.</p>
+        <div class="price">от 24 500 ₽ <small>· 1–2 дня</small></div>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Химчистка салона</h3>
+        <p>Ткань, кожа, потолок, багажник. Разбираем сиденья при сильном загрязнении.</p>
+        <div class="price">от 6 400 ₽ <small>· 5–7 часов</small></div>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Комплекс «Продажа»</h3>
+        <p>Полировка + салон + моторный отсек. Для тех, кто готовит машину к продаже.</p>
+        <div class="price">от 19 800 ₽ <small>· 1 день</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="calc" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Сколько это стоит для вашей машины</h2>
+      <p>Выберите класс и услугу — цена пересчитается сразу. Это итоговая сумма за работу, без скрытых доплат.</p>
+    </div>
+
+    <div class="calc-wrap">
+      <div>
+        <div class="field">
+          <label>Класс автомобиля</label>
+          <div class="opts" id="cls" role="group" aria-label="Класс автомобиля">
+            <button class="opt" data-mult="1" aria-pressed="true">Седан / хэтчбек</button>
+            <button class="opt" data-mult="1.25" aria-pressed="false">Кроссовер / SUV</button>
+            <button class="opt" data-mult="1.5" aria-pressed="false">Внедорожник / минивэн</button>
+            <button class="opt" data-mult="1.8" aria-pressed="false">Купе / премиум</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Услуга</label>
+          <div class="opts" id="svc" role="group" aria-label="Услуга">
+            <button class="opt" data-base="8900" aria-pressed="true">Полировка</button>
+            <button class="opt" data-base="24500" aria-pressed="false">Керамика</button>
+            <button class="opt" data-base="6400" aria-pressed="false">Химчистка</button>
+            <button class="opt" data-base="19800" aria-pressed="false">Комплекс</button>
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:0">
+          <label>Дополнительно</label>
+          <div class="opts" id="ext" role="group" aria-label="Дополнительно">
+            <button class="opt" data-add="3500" aria-pressed="false">Моторный отсек +3 500 ₽</button>
+            <button class="opt" data-add="2200" aria-pressed="false">Фары +2 200 ₽</button>
+            <button class="opt" data-add="4800" aria-pressed="false">Антидождь на стёкла +4 800 ₽</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="total">
+        <div class="lbl">Итого</div>
+        <div class="sum" id="sum">8 900 ₽</div>
+        <div class="note" id="note">Седан · Полировка кузова</div>
+        <a href="#book" class="btn btn-gold">Записаться на эту цену</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Как проходит работа</h2>
+      <p>Вы всегда знаете, на каком этапе машина.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Осмотр и замер</h3><p>Смотрим толщиномером, показываем проблемные зоны, фиксируем состояние в акте.</p></div>
+      <div class="step"><h3>Мойка и обезжиривание</h3><p>Двухфазная мойка, глина, обезжиривание. Без этого покрытие не держится.</p></div>
+      <div class="step"><h3>Работа</h3><p>Полировка под контролем лампы, нанесение состава в боксе с контролем пыли.</p></div>
+      <div class="step"><h3>Сдача</h3><p>Проверяем вместе, показываем результат, отдаём гарантийный лист и рекомендации по уходу.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Отзывы</h2>
+      <p>Ниже — примеры отзывов для демонстрации вёрстки, не реальные публикации.</p>
+    </div>
+    <div class="grid rev">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>«Приехал на полировку после автомойки — были круги от старой машинки. Убрали полностью, показали под лампой до и после.»</p>
+        <div class="who">Седан · полировка</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>«Керамику делал впервые. Объяснили, что нужно мыть иначе, дали памятку. Через полгода вода всё так же скатывается.»</p>
+        <div class="who">Кроссовер · керамика 2 слоя</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>«Салон после собаки и двух зим. Забрали утром — вечером забрал машину, запаха нет, потолок чистый.»</p>
+        <div class="who">Универсал · химчистка</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head"><h2>Частые вопросы</h2></div>
+    <details open><summary>Можно ли приехать без записи?</summary>
+      <p>Можно, но машину поставят в очередь. Мы работаем в два бокса, поэтому записанные на конкретное время проходят первыми.</p></details>
+    <details><summary>Сколько держится керамика?</summary>
+      <p>Два слоя 9H при правильной мойке — 1,5–2 года. Гарантия 2 года действует при соблюдении памятки по уходу, которую выдаём при сдаче.</p></details>
+    <details><summary>Уберёт ли полировка глубокие царапины?</summary>
+      <p>Те, что не прошли лак — да. Если царапина чувствуется ногтем, останется след: в этом случае честно скажем на осмотре и предложим локальную покраску.</p></details>
+    <details><summary>Работаете с юрлицами и по счёту?</summary>
+      <p>Да, закрывающие документы предоставляем. Для парков и такси есть отдельный тариф — уточните при записи.</p></details>
+  </div>
+</section>
+
+<section id="book" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Записаться</h2>
+        <p class="muted" style="margin:14px 0 22px">Оставьте номер — перезвоним в течение 15 минут в рабочее время и подтвердим время.</p>
+        <div class="muted" style="font-size:.92rem;line-height:2">
+          Адрес: Екатеринбург, ул. Примерная, 12<br>
+          Ежедневно 9:00–20:00<br>
+          Телефон: +7 (343) 000-00-00
+        </div>
+      </div>
+
+      <form id="f">
+        <div>
+          <label class="req" for="nm">Как к вам обращаться</label>
+          <input id="nm" name="name" required placeholder="Имя" autocomplete="name">
+        </div>
+        <div>
+          <label class="req" for="ph">Телефон</label>
+          <input id="ph" name="phone" required type="tel" placeholder="+7 ___ ___-__-__" autocomplete="tel">
+        </div>
+        <div>
+          <label class="req" for="car">Автомобиль</label>
+          <input id="car" name="car" placeholder="Марка и модель">
+        </div>
+        <div>
+          <label class="req" for="srv2">Услуга</label>
+          <select id="srv2" name="service">
+            <option>Полировка кузова</option>
+            <option>Керамическое покрытие</option>
+            <option>Химчистка салона</option>
+            <option>Комплекс «Продажа»</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%">Отправить заявку</button>
+        <div class="ok" id="ok">Заявка отправлена. Перезвоним в течение 15 минут.</div>
+        <div class="form-note">Демо-форма: данные никуда не отправляются. Подключается к почте, Telegram или CRM.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="logo" style="margin-bottom:10px"><i></i>AURUM</div>
+      <div>Детейлинг-студия · Екатеринбург</div>
+      <div class="demo-tag">ДЕМО-САЙТ · шаблон для продажи</div>
+    </div>
+    <div style="text-align:right;line-height:2">
+      <div>Полировка · Керамика · Химчистка</div>
+      <div>+7 (343) 000-00-00</div>
+      <div>9:00–20:00, ежедневно</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var price = {mult:1, base:8900, add:0};
+  var clsName = "Седан", svcName = "Полировка кузова";
+  var fmt = function(n){ return n.toLocaleString("ru-RU") + " \u20BD"; };
+
+  function render(){
+    var total = Math.round(price.base * price.mult) + price.add;
+    document.getElementById("sum").textContent = fmt(total);
+    var note = clsName + " · " + svcName;
+    if(price.add > 0) note += " + доп.";
+    document.getElementById("note").textContent = note;
+  }
+
+  function group(id, onPick){
+    var box = document.getElementById(id);
+    box.addEventListener("click", function(e){
+      var b = e.target.closest(".opt");
+      if(!b) return;
+      box.querySelectorAll(".opt").forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+      onPick(b);
+      render();
+    });
+  }
+
+  group("cls", function(b){ price.mult = parseFloat(b.dataset.mult); clsName = b.textContent; });
+  group("svc", function(b){ price.base = parseInt(b.dataset.base,10); svcName = b.textContent; });
+  group("ext", function(b){ price.add = parseInt(b.dataset.add,10); });
+
+  document.getElementById("f").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("ok").classList.add("show");
+    e.target.querySelector("button").textContent = "Отправлено";
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
